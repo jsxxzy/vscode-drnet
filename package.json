@@ -1,0 +1,83 @@
+{
+  "name": "vscode-drnet",
+  "displayName": "vscode-drnet",
+  "description": "哆点校园网工具",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.55.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": [
+      {
+        "title": "[哆点] 登录账号",
+        "properties": {
+          "vscode-drnet.username": {
+            "type": "string",
+            "default": "",
+            "description": "哆点登录账号"
+          }
+        }
+      },
+      {
+        "title": "[哆点] 登录密码",
+        "properties": {
+          "vscode-drnet.password": {
+            "type": "string",
+            "default": "",
+            "description": "哆点登录密码"
+          }
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "vscode-drnet.check",
+        "title": "哆点: 检测是否登录"
+      },
+      {
+        "command": "vscode-drnet.login",
+        "title": "哆点: 登录"
+      },
+      {
+        "command": "vscode-drnet.logout",
+        "title": "哆点: 注销"
+      },
+      {
+        "command": "vscode-drnet.query",
+        "title": "哆点: 查询信息"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.55.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.19.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.2.1",
+    "typescript": "^4.1.3",
+    "vscode-test": "^1.5.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.6",
+    "got": "^11.8.2",
+  }
+}
